@@ -5,7 +5,7 @@ using UnityEngine;
 public class Core : MonoBehaviour
 {
     [SerializeField] Transform target;
-    private Vector3 clickPosition;
+    private Vector2 clickPosition;
 
     private float cameraFOV;
     public float minFOV = 5.0f;
@@ -32,14 +32,14 @@ public class Core : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Left Mouse Button Pressed");
-            clickPosition = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            clickPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.position = clickPosition;
             //this should be refactored so that it has to hit the colider of the environment, limiting the click movement only environment
 
         }
-        if ((Vector3)transform.position != clickPosition)
+        if ((Vector2)transform.position != clickPosition)
         {
-            transform.position = Vector3.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
         }
 
         //Zoom in and out player position with scroll wheel
