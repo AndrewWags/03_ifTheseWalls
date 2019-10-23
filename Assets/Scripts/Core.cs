@@ -24,7 +24,7 @@ public class Core : MonoBehaviour
         clickPosition = transform.position;
         cameraFOV = Camera.main.orthographicSize;
 
-        dist = transform.position.z;
+        dist = Camera.main.transform.position.z;
     }
 
     void Update()
@@ -44,15 +44,15 @@ public class Core : MonoBehaviour
         {
             MouseStart = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dist);
             MouseStart = Camera.main.ScreenToWorldPoint(MouseStart);
-            MouseStart.z = transform.position.z;
+            MouseStart.z = Camera.main.transform.position.z;
 
         }
         else if (Input.GetMouseButton(2))
         {
             Vector3 MouseMove = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dist);
             MouseMove = Camera.main.ScreenToWorldPoint(MouseMove);
-            MouseMove.z = transform.position.z;
-            Camera.main.transform.position = transform.position - (MouseMove - MouseStart);
+            MouseMove.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = Camera.main.transform.position - (MouseMove - MouseStart);
             
         }
 

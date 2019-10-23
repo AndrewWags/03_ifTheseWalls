@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -257,23 +256,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bac9d2d0d35c848af751246337ea88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1996645716}
-  minFOV: 5
-  maxFOV: 1
-  zoomSensitivity: 0.1
-  moveSpeed: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -370,15 +352,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067869020}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48bac9d2d0d35c848af751246337ea88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1996645716}
+  mouseTarget: {fileID: 1996645716}
   minFOV: 5
   maxFOV: 1
-  zoomSensitivity: 1
+  zoomSensitivity: 0.1
   moveSpeed: 3
 --- !u!212 &1067869023
 SpriteRenderer:
@@ -440,7 +422,7 @@ GameObject:
   - component: {fileID: 1996645716}
   - component: {fileID: 1996645715}
   m_Layer: 0
-  m_Name: clickTarget
+  m_Name: mouseTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
