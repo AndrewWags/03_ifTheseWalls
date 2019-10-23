@@ -73,21 +73,14 @@ public class Core : MonoBehaviour
     //listening, locating, and sound management functions
     void EarControl()
     {
-        Debug.Log("2nd Mouse Button Pressed");
-
         clickPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseTarget.position = clickPosition;
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Button 1 is pressed");
-        }
-
         if ((Vector2)transform.position != clickPosition && Input.GetMouseButton(1))
         {
+            Debug.Log("Right Click is pressed");
             transform.position = clickPosition;
             //transform.position = Vector2.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
         }
-
     }
 }
