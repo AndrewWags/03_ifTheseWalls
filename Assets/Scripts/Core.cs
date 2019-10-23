@@ -7,9 +7,11 @@ public class Core : MonoBehaviour
     [SerializeField] Transform mouseTarget;
     private Vector2 mousePosition;
     private Vector2 clickPosition;
+    private Vector3 mouseStart;
 
-    private Vector3 MouseStart;
-    private float dist;
+    private float camDistance;
+    public float camLimitX = 6.0f;
+    public float CamLimitY = 3.0f;
 
     private float cameraFOV;
     public float minFOV = 5.0f;
@@ -22,17 +24,18 @@ public class Core : MonoBehaviour
     {
         mousePosition = transform.position;
         clickPosition = transform.position;
-        cameraFOV = Camera.main.orthographicSize;
 
-        dist = Camera.main.transform.position.z;
+        camDistance = Camera.main.transform.position.z;
+        cameraFOV = Camera.main.orthographicSize;
     }
 
     void Update()
     {
         EyeControl();
+        EarControl();
     }
 
-    //Mouse click player motion control
+    //Navigation and visual controls
     void EyeControl()
     {
         //move mouseTarget game object to match mouse position on screen
@@ -42,26 +45,23 @@ public class Core : MonoBehaviour
         //Click and drag mouse to move camera position
         if (Input.GetMouseButtonDown(2))
         {
-            MouseStart = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dist);
-            MouseStart = Camera.main.ScreenToWorldPoint(MouseStart);
-            MouseStart.z = Camera.main.transform.position.z;
-
+            mouseStart = new Vector3(Input.mousePosition.x, Input.mousePosition.y, camDistance);
+            mouseStart = Camera.main.ScreenToWorldPoint(mouseStart);
+            mouseStart.z = Camera.main.transform.position.z;
         }
         else if (Input.GetMouseButton(2))
         {
-            Vector3 MouseMove = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dist);
-            MouseMove = Camera.main.ScreenToWorldPoint(MouseMove);
-            MouseMove.z = Camera.main.transform.position.z;
-            Camera.main.transform.position = Camera.main.transform.position - (MouseMove - MouseStart);
-            
+            Vector3 mouseMove = new Vector3(Input.mousePosition.x, Input.mousePosition.y, camDistance);
+            mouseMove = Camera.main.ScreenToWorldPoint(mouseMove);
+            mouseMove.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = Camera.main.transform.position - (mouseMove - mouseStart);
+            //Need to figure out how to limit camera movemnt in X and Y
         }
 
         //Zoom in and out player position with scroll wheel
-        //scroll wheel controls size of orthographic camera
         cameraFOV -= Input.mouseScrollDelta.y * zoomSensitivity;
         cameraFOV = Mathf.Clamp(cameraFOV, maxFOV, minFOV);
         Camera.main.orthographicSize = cameraFOV;
-
     }
 
     //selecting, tapping, grabbing functions
@@ -73,21 +73,21 @@ public class Core : MonoBehaviour
     //listening, locating, and sound management functions
     void EarControl()
     {
-        //Move Player position (X and Y axis) to position of mouse click
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Left Mouse Button Pressed");
-            clickPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.position = clickPosition;
-            //this should be refactored so that it has to hit the colider of the environment, limiting the click movement only environment
+        Debug.Log("2nd Mouse Button Pressed");
 
+        clickPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseTarget.position = clickPosition;
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Button 1 is pressed");
         }
 
-        if ((Vector2)transform.position != clickPosition && Input.GetMouseButton(0))
+        if ((Vector2)transform.position != clickPosition && Input.GetMouseButton(1))
         {
-            transform.position = Vector2.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
+            transform.position = clickPosition;
+            //transform.position = Vector2.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
         }
-        */
+
     }
 }
