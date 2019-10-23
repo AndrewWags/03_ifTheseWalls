@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-
-    private Vector2 clickPosition;
-    public float moveSpeed = 3.0f;
-    
-
     [SerializeField] Transform target;
+    private Vector3 clickPosition;
+
+    private float cameraFOV;
+    public float minFOV = 5.0f;
+    public float maxFOV = 1.0f;
+    public float zoomSensitivity = 1.0f;
+
+    public float moveSpeed = 3.0f;
 
     void Start()
     {
         clickPosition = transform.position;
-
+        cameraFOV = Camera.main.orthographicSize;
     }
 
     void Update()
@@ -25,21 +28,26 @@ public class Core : MonoBehaviour
     //Mouse click player motion control
     void EyeControl()
     {
-        //Move Player position (X and Z axis) to position of mouse click
+        //Move Player position (X and Y axis) to position of mouse click
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Left Mouse Button Pressed");
-            clickPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            clickPosition = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.position = clickPosition;
+            //this should be refactored so that it has to hit the colider of the environment, limiting the click movement only environment
 
         }
-        if ((Vector2)transform.position != clickPosition)
+        if ((Vector3)transform.position != clickPosition)
         {
-            transform.position = Vector2.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, clickPosition, moveSpeed * Time.deltaTime);
         }
 
         //Zoom in and out player position with scroll wheel
-        
+        //scroll wheel controls size of orthographic camera
+        cameraFOV += Input.mouseScrollDelta.y * zoomSensitivity;
+        cameraFOV = Mathf.Clamp(cameraFOV, maxFOV, minFOV);
+        Camera.main.orthographicSize = cameraFOV;
+
     }
 
     //selecting, tapping, grabbing functions
