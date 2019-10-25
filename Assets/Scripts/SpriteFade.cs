@@ -6,6 +6,8 @@ public class SpriteFade : MonoBehaviour
 {
 
     SpriteRenderer m_sprightRenderer;
+    Color m_color;
+    float opacity;
 
     IEnumerator currentMoveCotoutine;
 
@@ -13,8 +15,9 @@ public class SpriteFade : MonoBehaviour
     void Start()
     {
         m_sprightRenderer = GetComponent<SpriteRenderer>();
-        Color m_color = m_sprightRenderer.color;
-        m_color.a = 1f;
+        m_color = m_sprightRenderer.color;
+        opacity = m_color.a;
+        opacity = 1f;
         m_sprightRenderer.color = m_color;
     }
 
@@ -24,25 +27,37 @@ public class SpriteFade : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
 
-            if(currentMoveCotoutine != null)
+            if (currentMoveCotoutine != null)
             {
                 StopCoroutine(currentMoveCotoutine);
             }
+            
 
-            currentMoveCotoutine = FadeOut(1);
-            StartCoroutine(currentMoveCotoutine);
+            if (opacity <= 0)
+            {
+                currentMoveCotoutine = FadeIn(opacity);
+                StartCoroutine(currentMoveCotoutine);
+            }
+            else
+            {
+                currentMoveCotoutine = FadeOut(opacity);
+                StartCoroutine(currentMoveCotoutine);
+            }
+
         }
     }
+
 
     IEnumerator FadeOut(float alphaOut)
     {
 
         for (alphaOut = 1f; alphaOut >= -0.05; alphaOut -= 0.05f)
         {
-            Color c = m_sprightRenderer.color;
-            c.a = alphaOut;
-            m_sprightRenderer.color = c;
+            m_color = m_sprightRenderer.color;
+            m_color.a = alphaOut;
+            m_sprightRenderer.color = m_color;
             yield return new WaitForSeconds(0.05f);
+
         }
 
     }
@@ -51,9 +66,9 @@ public class SpriteFade : MonoBehaviour
     {
         for (alphaIn = 0.05f; alphaIn < 1; alphaIn += 0.05f)
         {
-            Color c = m_sprightRenderer.color;
-            c.a = alphaIn;
-            m_sprightRenderer.color = c;
+            m_color = m_sprightRenderer.color;
+            m_color.a = alphaIn;
+            m_sprightRenderer.color = m_color;
             yield return new WaitForSeconds(0.05f);
         }
     }
