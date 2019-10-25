@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SpriteFade : MonoBehaviour
 {
-
     SpriteRenderer m_sprightRenderer;
     Color m_color;
     float opacity;
 
-    IEnumerator currentMoveCotoutine;
+    bool isFading;
+
+    IEnumerator currentMoveCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class SpriteFade : MonoBehaviour
         m_color = m_sprightRenderer.color;
         opacity = m_color.a;
         opacity = 1f;
-        m_sprightRenderer.color = m_color;
+        isFading = false;
     }
 
     // Update is called once per frame
@@ -26,51 +27,40 @@ public class SpriteFade : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-
-            if (currentMoveCotoutine != null)
+            //If already performing Coroutine while pressing button again, cancel previous coroutine
+            if (currentMoveCoroutine != null)
             {
-                StopCoroutine(currentMoveCotoutine);
-            }
-            
-
-            if (opacity <= 0)
-            {
-                currentMoveCotoutine = FadeIn(opacity);
-                StartCoroutine(currentMoveCotoutine);
-            }
-            else
-            {
-                currentMoveCotoutine = FadeOut(opacity);
-                StartCoroutine(currentMoveCotoutine);
+                StopCoroutine(currentMoveCoroutine);
             }
 
+            currentMoveCoroutine = Fade();
+            StartCoroutine(currentMoveCoroutine);
         }
     }
 
-
-    IEnumerator FadeOut(float alphaOut)
+    IEnumerator Fade()
     {
-
-        for (alphaOut = 1f; alphaOut >= -0.05; alphaOut -= 0.05f)
+        //Fade out if opaque
+        if (opacity ==1 || isFading == false)
         {
-            m_color = m_sprightRenderer.color;
-            m_color.a = alphaOut;
-            m_sprightRenderer.color = m_color;
-            yield return new WaitForSeconds(0.05f);
-
+            for (opacity = m_color.a; opacity >= -0.05; opacity -= 0.05f)
+            {
+                m_color.a = opacity;
+                m_sprightRenderer.color = m_color;
+                isFading = true;
+                yield return new WaitForSeconds(0.05f);
+            }
         }
-
-    }
-
-    IEnumerator FadeIn(float alphaIn)
-    {
-        for (alphaIn = 0.05f; alphaIn < 1; alphaIn += 0.05f)
+        //otherwise fade in
+        else if(isFading == true)
         {
-            m_color = m_sprightRenderer.color;
-            m_color.a = alphaIn;
-            m_sprightRenderer.color = m_color;
-            yield return new WaitForSeconds(0.05f);
+            for (opacity = m_color.a; opacity < 1; opacity += 0.05f)
+            {
+                m_color.a = opacity;
+                m_sprightRenderer.color = m_color;
+                isFading = false;
+                yield return new WaitForSeconds(0.05f);
+            }
         }
     }
-
 }
