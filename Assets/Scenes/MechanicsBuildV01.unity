@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseCursor: {fileID: 1996645716}
-  camFOVmax: 1
-  camFOVmin: 5
+  camFOVmax: 5
+  camFOVmin: 1
 --- !u!1 &1449108500
 GameObject:
   m_ObjectHideFlags: 0

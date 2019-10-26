@@ -8,10 +8,11 @@ public class Navigation : MonoBehaviour
     Vector3 mousePos;
 
     private float camZoomSize;
-    private bool isZoomedOut;
-    private bool isZooming;
+    private bool isZoomingIn;
     public float camFOVmax = 1.0f;
     public float camFOVmin = 5.0f;
+
+    IEnumerator currentMoveCoroutine;
 
 
 
@@ -21,8 +22,7 @@ public class Navigation : MonoBehaviour
         mousePos = transform.position;
         mouseCursor.position = transform.position;
         camZoomSize = Camera.main.orthographicSize;
-        isZoomedOut = true;
-        isZooming = false;
+        isZoomingIn = false;
 
     }
 
@@ -41,7 +41,15 @@ public class Navigation : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+
+            if(currentMoveCoroutine != null)
+            {
+                StopCoroutine(currentMoveCoroutine);
+            }
+
             print("Clicked the right mouse button");
+            currentMoveCoroutine = CameraZoom();
+            StartCoroutine(currentMoveCoroutine);
 
             //slowly zoom in the camera at a given speed - using a coroutine
         }
@@ -51,14 +59,29 @@ public class Navigation : MonoBehaviour
     {
 
 
-        if (camZoomSize == camFOVmax || isZooming == false)
+        if (camZoomSize == camFOVmax || isZoomingIn == false)
         {
-            isZoomedOut = true;
-            yield return new WaitForSeconds(0.05f);
+            //Zoom in softly
+            for (camZoomSize = Camera.main.orthographicSize; camZoomSize > camFOVmin; camZoomSize -= 0.05f )
+            {
+                Camera.main.orthographicSize = camZoomSize;
+                print("is zooming in");
+                isZoomingIn = true;
+                yield return new WaitForSeconds(0.05f);
+            }
         }
-        else if(isZooming == true)
+        else if(isZoomingIn == true)
         {
-            isZoomedOut = false;
+            //Zoom out softly
+            for (camZoomSize = Camera.main.orthographicSize; camZoomSize < camFOVmax; camZoomSize += 0.05f)
+            {
+                Camera.main.orthographicSize = camZoomSize;
+                print("is zooming out");
+                isZoomingIn = false;
+                yield return new WaitForSeconds(0.05f);
+            }
+            print("is zooming out");
+
         }
 
         //if camera ortho size is zoomed out, then zoom in, otherwise zoom out. 
