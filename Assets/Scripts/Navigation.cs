@@ -56,7 +56,8 @@ public class Navigation : MonoBehaviour
 
             print("Clicked the right mouse button");
             currentMoveCoroutine = CameraZoom();
-            StartCoroutine(currentMoveCoroutine);
+           // StartCoroutine(currentMoveCoroutine);
+            StartCoroutine(LerpFromTo(Camera.main.transform.position, mousePos, 1f));
         }
     }
 
@@ -73,7 +74,6 @@ public class Navigation : MonoBehaviour
                 Camera.main.orthographicSize = camZoomSize;
                // Camera.main.transform.position = clickPos;
 
-           
                 print("is zooming in");
                 isZoomingIn = true;
                 yield return new WaitForSeconds(0.05f);
@@ -94,5 +94,16 @@ public class Navigation : MonoBehaviour
         }
 
     }
+
+    IEnumerator LerpFromTo(Vector3 pos1, Vector3 pos2, float duration)
+    {
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            Camera.main.transform.position = Vector3.Lerp(pos1, pos2, t / duration);
+            yield return 0;
+        }
+        Camera.main.transform.position = pos2;
+    }
+
 }
 
