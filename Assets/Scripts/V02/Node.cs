@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public abstract class Node : MonoBehaviour
 {
@@ -33,8 +34,11 @@ public abstract class Node : MonoBehaviour
         GameManager.ins.currentNode = this;
 
         //move camera
-        Camera.main.transform.position = cameraPosition.position;
-        Camera.main.transform.rotation = cameraPosition.rotation;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(Camera.main.transform.DOMove(cameraPosition.position, 0.75f));
+        seq.Join(Camera.main.transform.DORotate(cameraPosition.rotation.eulerAngles, 0.75f));
+        //Camera.main.transform.position = cameraPosition.position;
+        //Camera.main.transform.rotation = cameraPosition.rotation;
 
         //turn off own collider
         if(col != null)
