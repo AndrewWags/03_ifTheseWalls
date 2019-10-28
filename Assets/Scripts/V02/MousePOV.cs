@@ -27,8 +27,9 @@ public class MousePOV : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButton(0) && (Input.GetAxis("Mouse X")) != 0 || (Input.GetAxis("Mouse Y")) != 0)
+        if(Input.GetMouseButton(0) && (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0))
         {
+            print("Left click is held down");
             yAxis = rig.y_axis.localRotation;
             xAxis = rig.x_axis.localRotation;
             LookRotation();
