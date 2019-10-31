@@ -9,4 +9,5 @@ public class EncounterView : MonoBehaviour
     public Button talkButton;
     public Button eatButton;
     public Text textField;
+    public Text nameTextField;
 }
