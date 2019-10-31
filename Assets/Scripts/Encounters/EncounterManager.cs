@@ -14,6 +14,8 @@ public class EncounterManager : MonoBehaviour
     {
         instance = this;
         sentences = new Queue<string>();
+
+        view.continueButton.onClick.AddListener(DisplayNextSentence);
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -42,6 +44,11 @@ public class EncounterManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+
+        view.textField.text = sentence;
+
+        view.continueButton.gameObject.SetActive(sentences.Count > 0);
+
         Debug.Log(sentence);
     }
 
