@@ -11,10 +11,10 @@ public abstract class Node : MonoBehaviour
     [HideInInspector]
     public Collider col;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         col = GetComponent<Collider>();
+        col.enabled = false;
     }
 
     void OnMouseDown()
