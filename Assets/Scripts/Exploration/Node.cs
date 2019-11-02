@@ -8,6 +8,8 @@ public abstract class Node : MonoBehaviour
     public Transform cameraPosition;
     public List<Node> rechableNodes = new List<Node>();
 
+    public bool ignoreCameraRotation;
+
     [HideInInspector]
     public Collider col;
     
@@ -34,7 +36,14 @@ public abstract class Node : MonoBehaviour
         GameManager.ins.currentNode = this;
 
         //move camera
-        GameManager.ins.rig.AlignTo(cameraPosition);
+        if(ignoreCameraRotation == true)
+        {
+            GameManager.ins.rig.GoTo(cameraPosition);
+        }
+        else
+        {
+            GameManager.ins.rig.AlignTo(cameraPosition);
+        }
 
         //turn off own collider
         if(col != null)
