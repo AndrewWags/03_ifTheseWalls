@@ -53,23 +53,22 @@ public abstract class Node : MonoBehaviour
         }
 
         //turn on all reachable nodes colliders
-        foreach(Node node in rechableNodes)
-        {
-            if(node.col != null)
-            {
-                node.col.enabled = true;
-            }
-        }
+        SetReachableNodes(true);
     }
 
     public virtual void Leave()
     {
         //turn off all reachable nodes colliders
+        SetReachableNodes(false);
+    }
+
+    public void SetReachableNodes (bool set)
+    {
         foreach (Node node in rechableNodes)
         {
             if (node.col != null)
             {
-                node.col.enabled = false;
+                node.col.enabled = set;
             }
         }
     }

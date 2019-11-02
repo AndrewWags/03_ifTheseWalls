@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
 
     public CameraRig rig;
 
-    //very bad singleton, refresh and look up later
     void Awake()
     {
+        //very bad singleton, refresh and look up later
         ins = this;
         ivCanvas.gameObject.SetActive(false);
     }
@@ -26,8 +26,14 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-       if(Input.GetMouseButtonDown(1) && currentNode.GetComponent<Prop>() != null)
+        //If I right click, and im in a prop, then backup to the props location
+        if (Input.GetMouseButtonDown(1) && currentNode.GetComponent<Prop>() != null)
         {
+            if (ivCanvas.gameObject.activeInHierarchy)
+            {
+                ivCanvas.Close();
+                return;
+            }
             currentNode.GetComponent<Prop>().loc.Arrive();
         } 
     }
