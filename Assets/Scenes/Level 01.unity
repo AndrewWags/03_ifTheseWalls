@@ -1430,6 +1430,7 @@ GameObject:
   - component: {fileID: 1839684825193129883}
   - component: {fileID: 1839684825193129882}
   - component: {fileID: 1839684825193129885}
+  - component: {fileID: 1839684825193129886}
   m_Layer: 0
   m_Name: PR05 - Stair Door
   m_TagString: Untagged
@@ -1490,12 +1491,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839684825193129880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 135265eb89b3e8b449b25365816951e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pic: {fileID: 21300000, guid: 6389c0b3d2d2e2843ae5d53be430bb59, type: 3}
+--- !u!114 &1839684825193129886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839684825193129880}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8a17cfde0ece24a92f1e1d035a2bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &1839684825322043097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,7 +3666,7 @@ GameObject:
   - component: {fileID: 8740360285271183024}
   - component: {fileID: 8740360285271183026}
   - component: {fileID: 8740360285271183027}
-  - component: {fileID: 8740360285271183028}
+  - component: {fileID: 8740360285271183029}
   m_Layer: 0
   m_Name: PR04 - Cell opposite yours
   m_TagString: Untagged
@@ -3691,7 +3705,7 @@ MonoBehaviour:
   ignoreCameraRotation: 0
   col: {fileID: 0}
   loc: {fileID: 3489265123589182967}
---- !u!114 &8740360285271183028
+--- !u!114 &8740360285271183029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3700,9 +3714,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8740360285271183025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60fb68bf153cf4248935e529c8d50bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: fc8a17cfde0ece24a92f1e1d035a2bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!33 &8808015391704537158
 MeshFilter:
   m_ObjectHideFlags: 0
