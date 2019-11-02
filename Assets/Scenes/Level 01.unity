@@ -170,6 +170,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 1208803759}
   rechableNodes:
   - {fileID: 3489265123773914235}
+  ignoreCameraRotation: 0
   col: {fileID: 0}
 --- !u!135 &201712498
 SphereCollider:
@@ -1129,6 +1130,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 1839684825322043098}
   rechableNodes:
   - {fileID: 8740360285271183027}
+  ignoreCameraRotation: 0
   col: {fileID: 0}
   loc: {fileID: 3489265123589182967}
 --- !u!135 &1839684825193129883
@@ -1609,6 +1611,7 @@ MonoBehaviour:
   - {fileID: 3489265123773914235}
   - {fileID: 3489265125004462057}
   - {fileID: 3489265124886566211}
+  ignoreCameraRotation: 1
   col: {fileID: 0}
 --- !u!135 &3489265123589182968
 SphereCollider:
@@ -1651,7 +1654,7 @@ GameObject:
   - component: {fileID: 3489265123589182968}
   - component: {fileID: 2709783091678903229}
   m_Layer: 0
-  m_Name: LC03
+  m_Name: LC03 - Strairs, Body & Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1698,7 +1701,7 @@ GameObject:
   - component: {fileID: 3489265123773914228}
   - component: {fileID: 2709783091494531633}
   m_Layer: 0
-  m_Name: LC02
+  m_Name: LC02 - Room Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1723,6 +1726,7 @@ MonoBehaviour:
   - {fileID: 3489265125004462057}
   - {fileID: 3489265124886566211}
   - {fileID: 3489265124704974030}
+  ignoreCameraRotation: 1
   col: {fileID: 0}
 --- !u!4 &3489265124190812297
 Transform:
@@ -1769,6 +1773,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 3489265124679523346}
   rechableNodes:
   - {fileID: 3489265124966075104}
+  ignoreCameraRotation: 0
   col: {fileID: 0}
 --- !u!1 &3489265124225054957
 GameObject:
@@ -1783,7 +1788,7 @@ GameObject:
   - component: {fileID: 3489265124225054959}
   - component: {fileID: 2709783091039688362}
   m_Layer: 0
-  m_Name: LC08
+  m_Name: LC08 - Dark Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,7 +1923,7 @@ GameObject:
   - component: {fileID: 3489265124704974017}
   - component: {fileID: 2709783090546530948}
   m_Layer: 0
-  m_Name: LC06
+  m_Name: LC06 - Rope Tie up, Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1941,6 +1946,7 @@ MonoBehaviour:
   - {fileID: 3489265123773914235}
   - {fileID: 3489265124886566211}
   - {fileID: 3489265124966075104}
+  ignoreCameraRotation: 1
   col: {fileID: 0}
 --- !u!114 &3489265124886566211
 MonoBehaviour:
@@ -1960,6 +1966,7 @@ MonoBehaviour:
   - {fileID: 3489265123589182967}
   - {fileID: 3489265124704974030}
   - {fileID: 3489265124966075104}
+  ignoreCameraRotation: 1
   col: {fileID: 0}
 --- !u!135 &3489265124886566220
 SphereCollider:
@@ -2002,7 +2009,7 @@ GameObject:
   - component: {fileID: 3489265124886566220}
   - component: {fileID: 2709783090361137929}
   m_Layer: 0
-  m_Name: LC05
+  m_Name: LC05 - Well, cells, overview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2025,6 +2032,7 @@ MonoBehaviour:
   - {fileID: 3489265124886566211}
   - {fileID: 3489265124704974030}
   - {fileID: 3489265124225054944}
+  ignoreCameraRotation: 1
   col: {fileID: 0}
 --- !u!1 &3489265124966075117
 GameObject:
@@ -2039,7 +2047,7 @@ GameObject:
   - component: {fileID: 3489265124966075119}
   - component: {fileID: 2709783090298037418}
   m_Layer: 0
-  m_Name: LC07
+  m_Name: LC07 - Well, dark cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2086,7 +2094,7 @@ GameObject:
   - component: {fileID: 3489265125004462054}
   - component: {fileID: 2709783090244151715}
   m_Layer: 0
-  m_Name: LC04
+  m_Name: LC04 - Pit & Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2136,6 +2144,7 @@ MonoBehaviour:
   rechableNodes:
   - {fileID: 3489265123773914235}
   - {fileID: 3489265123589182967}
+  ignoreCameraRotation: 1
   col: {fileID: 0}
 --- !u!4 &3489265125074710961
 Transform:
@@ -2519,6 +2528,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 4848872742189688611}
   rechableNodes:
   - {fileID: 3489265123773914235}
+  ignoreCameraRotation: 0
   col: {fileID: 0}
 --- !u!1 &4848872742276236252
 GameObject:
@@ -2533,7 +2543,7 @@ GameObject:
   - component: {fileID: 4848872742276236254}
   - component: {fileID: 6250399696450432411}
   m_Layer: 0
-  m_Name: LC01
+  m_Name: LC01 - Your Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3325,6 +3335,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 8740360285248446451}
   rechableNodes:
   - {fileID: 1839684825193129882}
+  ignoreCameraRotation: 0
   col: {fileID: 0}
   loc: {fileID: 3489265123589182967}
 --- !u!33 &8808015391704537158
