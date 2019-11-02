@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager ins;
+    public Node startingNode;
 
     [HideInInspector]
     public Node currentNode;
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
         ins = this;
     }
 
+    void Start()
+    {
+        startingNode.Arrive();
+    }
     void Update()
     {
        if(Input.GetMouseButtonDown(1) && currentNode.GetComponent<Prop>() != null)
