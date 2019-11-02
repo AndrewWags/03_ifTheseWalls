@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
         this.enabled = false;
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         Debug.Log("interactiong with " + name);
     }

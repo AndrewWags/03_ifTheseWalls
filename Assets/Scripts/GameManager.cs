@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager ins;
+    public IVCanvas ivCanvas;
     public Node startingNode;
 
     [HideInInspector]
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         ins = this;
+        ivCanvas.gameObject.SetActive(false);
     }
 
     void Start()
