@@ -24,6 +24,7 @@ public class AudioData : ScriptableObject {
 [System.Serializable]
 public class SFX
 {
+    public AudioClip[] eat;
     public AudioClip[] movementStart;
     public AudioClip[] movementStop;
 }

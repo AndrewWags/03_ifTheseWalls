@@ -9,11 +9,12 @@ public class EncounterManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private bool debugging = false;
+
     private void Awake()
     {
         instance = this;
 
-        view.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -22,6 +23,8 @@ public class EncounterManager : MonoBehaviour
         sentences = new Queue<string>();
 
         view.continueButton.onClick.AddListener(DisplayNextSentence);
+        view.talkButton.onClick.AddListener(HandleTalkButton);
+        view.eatButton.onClick.AddListener(HandleEatButton);
     }
 
    /* void Update()
@@ -40,9 +43,20 @@ public class EncounterManager : MonoBehaviour
     }
     */
 
+    void HandleTalkButton()
+    {
+        DisplayNextSentence();
+    }
+
+    void HandleEatButton()
+    {
+        EndDialogue();
+        AudioManager.PlayAudio(AudioData.instance.sfx.eat);
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting dialogue with: " + dialogue.name);
+        if (debugging) Debug.Log("Starting dialogue with: " + dialogue.name);
 
         view.portrait.sprite = dialogue.portrait;
         view.nameTextField.text = dialogue.name;
@@ -53,6 +67,8 @@ public class EncounterManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
+
+        view.fader.FadeIn();
 
         DisplayNextSentence();
     }
@@ -67,16 +83,17 @@ public class EncounterManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
 
-        view.textTyper.msg = sentence;
-        view.textTyper.TypeIn();        
+        view.textTyper.Type(sentence);        
 
         view.continueButton.gameObject.SetActive(sentences.Count > 0);
 
-        Debug.Log(sentence);
+        if (debugging) Debug.Log(sentence);
     }
 
     void EndDialogue()
     {
-        Debug.Log("End of conversation");
+        if (debugging) Debug.Log("End of conversation");
+
+        view.fader.FadeOut();
     }
 }

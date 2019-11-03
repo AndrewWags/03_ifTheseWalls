@@ -22,6 +22,7 @@ public class AudioManager : Singleton<AudioManager>
         AudioData.instance = audioData;
         MusicData.instance = musicData;
 
+        PlayMusic(musicData.level.dungeon);
     }
 
     public static void PlayAudio(AudioClip audioClip, float pitch = 1f)
