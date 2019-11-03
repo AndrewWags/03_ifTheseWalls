@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public Node currentNode;
-    //create an array or list to add or subtract from of bugs 
-    public Bug[] bugsEatten;
+    //create an array or list to add or subtract from in order to have multiple bugs
+    //when you click on a collector that has an item attached to it, you will basically poulate it into this item held location
+    //public Bug[] stomach = new Bug[5];
+    public List<Bug> stomach = new List<Bug>();
 
     public CameraRig rig;
 
