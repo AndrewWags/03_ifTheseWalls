@@ -67,7 +67,8 @@ public class EncounterManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
 
-        view.textField.text = sentence;
+        view.textTyper.msg = sentence;
+        view.textTyper.TypeIn();        
 
         view.continueButton.gameObject.SetActive(sentences.Count > 0);
 
