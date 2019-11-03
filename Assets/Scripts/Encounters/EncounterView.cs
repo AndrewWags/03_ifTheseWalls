@@ -10,7 +10,9 @@ public class EncounterView : MonoBehaviour
     public Button eatButton;
     public Button continueButton;
     public Text textField;
+    public Typer textTyper;
     public Text nameTextField;
+    public CanvasGroupFader fader;
 
     public void Activate(Sprite pic)
     {
