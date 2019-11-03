@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public Node currentNode;
+    //create an array or list to add or subtract from of bugs 
+    public Bug[] bugsEatten;
 
     public CameraRig rig;
 

@@ -122,6 +122,19 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!135 &142823712
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740360284842495230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &201712495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1090,7 @@ MonoBehaviour:
   ivCanvas: {fileID: 1188512142}
   startingNode: {fileID: 201712497}
   currentNode: {fileID: 0}
+  bugsEatten: []
   rig: {fileID: 1631649059308388169}
 --- !u!1 &1997614546
 GameObject:
@@ -1617,7 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0122c5ab4e70b4c8a46729cd91287a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  watchSwitcher: {fileID: 8740360285271183029}
+  watchSwitcher: {fileID: 0}
   nodeAccess: 1
 --- !u!114 &1839684825193129885
 MonoBehaviour:
@@ -3745,6 +3759,69 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!114 &8740360284842495228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740360284842495230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c948cb3e9f963da43979b000de1a4dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPosition: {fileID: 8740360285248446451}
+  rechableNodes: []
+  ignoreCameraRotation: 1
+  col: {fileID: 0}
+  loc: {fileID: 3489265123589182967}
+--- !u!1 &8740360284842495230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8740360284842495231}
+  - component: {fileID: 8740360284842495228}
+  - component: {fileID: 142823712}
+  - component: {fileID: 8740360284842495232}
+  m_Layer: 0
+  m_Name: Bug Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8740360284842495231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740360284842495230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.28, y: 0.17, z: -0.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8740360284842495232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740360284842495230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016c84a0e340b814f93f1621d7e16f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eattenBugs: []
 --- !u!1 &8740360285248446448
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,7 +3878,6 @@ GameObject:
   - component: {fileID: 8740360285271183024}
   - component: {fileID: 8740360285271183026}
   - component: {fileID: 8740360285271183027}
-  - component: {fileID: 8740360285271183029}
   m_Layer: 0
   m_Name: PR04 - Cell opposite yours
   m_TagString: Untagged
@@ -3837,22 +3913,10 @@ MonoBehaviour:
   cameraPosition: {fileID: 8740360285248446451}
   rechableNodes:
   - {fileID: 1839684825193129882}
+  - {fileID: 8740360284842495228}
   ignoreCameraRotation: 0
   col: {fileID: 0}
   loc: {fileID: 3489265123589182967}
---- !u!114 &8740360285271183029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8740360285271183025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8a17cfde0ece24a92f1e1d035a2bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
 --- !u!33 &8808015391704537158
 MeshFilter:
   m_ObjectHideFlags: 0
