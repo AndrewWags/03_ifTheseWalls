@@ -43,4 +43,16 @@ public class Prop : Node
             inter.enabled = false;
         }
     }
+
+    //Change cursor on mouse over colider
+    private void OnMouseEnter()
+    {
+        CursorController.Instance.SetWallCursor();
+    }
+
+    //Change cursor on mouse over colider
+    private void OnMouseExit()
+    {
+        CursorController.Instance.SetNormalCursor();
+    }
 }
