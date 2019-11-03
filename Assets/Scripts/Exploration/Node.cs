@@ -66,8 +66,13 @@ public abstract class Node : MonoBehaviour
     {
         foreach (Node node in rechableNodes)
         {
+
             if (node.col != null)
             {
+                if (GetComponent<Prereq>() && GetComponent<Prereq>().nodeAccess && !GetComponent<Prereq>().Complete)
+                {
+                    continue;
+                }
                 node.col.enabled = set;
             }
         }
