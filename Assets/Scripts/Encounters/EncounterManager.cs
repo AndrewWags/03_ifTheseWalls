@@ -9,14 +9,36 @@ public class EncounterManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private void Awake()
+    {
+        instance = this;
+
+        view.gameObject.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
         sentences = new Queue<string>();
 
         view.continueButton.onClick.AddListener(DisplayNextSentence);
     }
+
+    void Update()
+    {
+        //If I right click, and im in a prop, then backup to the props location
+        if (Input.GetMouseButtonDown(1) && GameManager.ins.currentNode.GetComponent<Prop>() != null)
+        {
+            if (view.gameObject.activeInHierarchy)
+            {
+                view.Close();
+                return;
+            }
+            GameManager.ins.currentNode.GetComponent<Prop>().loc.Arrive();
+           
+        }
+    }
+
 
     public void StartDialogue(Dialogue dialogue)
     {

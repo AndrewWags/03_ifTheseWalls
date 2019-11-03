@@ -5,12 +5,12 @@ using UnityEngine;
 public class CursorController : MonoBehaviour
 {
     
-    [SerializeField]
-    private Texture2D normalCursor;
-    [SerializeField]
-    private Texture2D moveCursor;
-    [SerializeField]
-    private Texture2D wallCursor;
+    //[SerializeField]
+    public Texture2D normalCursor;
+    //[SerializeField]
+    public Texture2D moveCursor;
+    //[SerializeField]
+    public Texture2D wallCursor;
 
     public static CursorController Instance { get; private set; }
 
