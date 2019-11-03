@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stomach : MonoBehaviour
+public class Stomach : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Bug[] eattenBugs;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact()
     {
-        
+        GameManager.ins.bugsEatten = eattenBugs;
     }
 }
