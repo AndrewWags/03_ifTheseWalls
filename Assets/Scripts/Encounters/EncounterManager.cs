@@ -24,7 +24,7 @@ public class EncounterManager : MonoBehaviour
         view.continueButton.onClick.AddListener(DisplayNextSentence);
     }
 
-    void Update()
+   /* void Update()
     {
         //If I right click, and im in a prop, then backup to the props location
         if (Input.GetMouseButtonDown(1) && GameManager.ins.currentNode.GetComponent<Prop>() != null)
@@ -38,7 +38,7 @@ public class EncounterManager : MonoBehaviour
            
         }
     }
-
+    */
 
     public void StartDialogue(Dialogue dialogue)
     {

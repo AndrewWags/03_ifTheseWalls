@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Prop))]
+[RequireComponent(typeof(Bug))]
 public abstract class Encounter : MonoBehaviour
 {
     // Start is called before the first frame update

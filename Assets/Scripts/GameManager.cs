@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Node currentNode;
     //create an array or list to add or subtract from in order to have multiple bugs
     //when you click on a collector that has an item attached to it, you will basically poulate it into this item held location
-    public List<Bug> stomach = new List<Bug>();
+    public List<BugCounter> stomach = new List<BugCounter>();
 
     public CameraRig rig;
 
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         startingNode.Arrive();
     }
+
     void Update()
     {
         //If I right click, and im in a prop, then backup to the props location
