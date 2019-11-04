@@ -10,9 +10,6 @@ public class Prereq : MonoBehaviour
     //watch this switcher
     public Switcher watchSwitcher;
 
-    //if requiredBugs is true, we'll check this collector
-    public Collector checkCollector;
-
     //if true, then block access altogether
     public bool nodeAccess;
 

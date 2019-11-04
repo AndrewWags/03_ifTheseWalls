@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class EncounterTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    public Encounter dialogue;
 
-    public void TriggerDialogue()
+    public void Activate()
     {
         EncounterManager.instance.StartEncounter(dialogue);
     }

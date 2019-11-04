@@ -5,6 +5,8 @@ using UnityEngine;
 public class Prop : Node
 {
     public Location loc;
+    public EncounterTrigger encounterTrigger;
+
     Interactable inter;
 
     void Start()
@@ -22,16 +24,18 @@ public class Prop : Node
 
         base.Arrive();
 
-        //make this object interactable if preq is met
-        if(inter != null)
-        {
-            if(GetComponent<Prereq>() && !GetComponent<Prereq>().Complete)
-            {
-                return;
-            }
-            col.enabled = true;
-            inter.enabled = true;
-        }
+        if (encounterTrigger != null) encounterTrigger.Activate();
+
+        ////make this object interactable if preq is met
+        //if(inter != null)
+        //{
+        //    if(GetComponent<Prereq>() && !GetComponent<Prereq>().Complete)
+        //    {
+        //        return;
+        //    }
+        //    col.enabled = true;
+        //    inter.enabled = true;
+        //}
     }
 
     public override void Leave()

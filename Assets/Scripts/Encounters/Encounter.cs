@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Bug))]
-public abstract class Encounter : MonoBehaviour
+[System.Serializable]
+public class Encounter 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.enabled = false;
-    }
+    public string name;
 
-    public virtual void BugEncount()
-    {
-        Debug.Log("Encountering " + name);
-    }
+    public Sprite portrait;
+
+    [TextArea(3, 10)]
+    public string[] sentences;
+
+    public bool talkable;
+    public bool edible;
+
 }

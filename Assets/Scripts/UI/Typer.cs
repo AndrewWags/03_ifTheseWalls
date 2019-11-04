@@ -27,7 +27,14 @@ public class Typer : MonoBehaviour {
 
         message = newMessage;
 
+        text.text = "";
+
         StartCoroutine(typingSequence);
+    }
+
+    public void Cancel()
+    {
+        if (typingSequence != null) StopCoroutine(typingSequence);
     }
 
 	private IEnumerator TypeInSequence() {

@@ -21,7 +21,7 @@ public abstract class Node : MonoBehaviour
         col.enabled = false;
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         Arrive();
     }

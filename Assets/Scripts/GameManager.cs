@@ -29,13 +29,13 @@ public class GameManager : MonoBehaviour
         //If I right click, and im in a prop, then backup to the props location
         if (Input.GetMouseButtonDown(1))
         {
-            if(!EncounterManager.inEncounter) ReturnToLocation();
+            ReturnToLocation();
         } 
     }
 
     void ReturnToLocation()
     {
-        //EncounterManager.instance.EndEncounter();
+        EncounterManager.instance.EndEncounter();
         Location.current.Arrive();
     }
 

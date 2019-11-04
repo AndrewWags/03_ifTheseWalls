@@ -6,7 +6,7 @@ public class Bug : Node
 {
     public Location loc;
 
-    public DialogueTrigger dialogueTrigger;
+    public EncounterTrigger dialogueTrigger;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class Bug : Node
         col.enabled = true;
         
 
-        dialogueTrigger.TriggerDialogue();
+        dialogueTrigger.Activate();
     }
 
     public override void Leave()

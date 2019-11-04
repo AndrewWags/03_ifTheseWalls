@@ -25,6 +25,7 @@ public class EncounterManager : MonoBehaviour
         sentences = new Queue<string>();
 
         view.continueButton.onClick.AddListener(DisplayNextSentence);
+
         view.talkButton.onClick.AddListener(HandleTalkButton);
         view.eatButton.onClick.AddListener(HandleEatButton);
     }
@@ -40,14 +41,34 @@ public class EncounterManager : MonoBehaviour
         EndEncounter();
     }
 
-    public void StartEncounter(Dialogue dialogue)
+    public void StartEncounter(Encounter dialogue)
     {
         if (debugging) Debug.Log("Starting dialogue with: " + dialogue.name);
 
         inEncounter = true;
 
-        view.portrait.sprite = dialogue.portrait;
-        view.nameTextField.text = dialogue.name;
+        if(dialogue.portrait != null)
+        {
+            view.portrait.sprite = dialogue.portrait;
+            view.portrait.gameObject.SetActive(true);
+        }
+        else
+        {
+            view.portrait.gameObject.SetActive(false);
+        }
+
+        if(dialogue.name != "")
+        {
+            view.nameTextField.text = dialogue.name;
+            view.nameTextField.gameObject.SetActive(true);
+        }
+        else
+        {
+            view.nameTextField.gameObject.SetActive(false);
+        }
+
+        view.talkButton.gameObject.SetActive(dialogue.talkable);
+        view.eatButton.gameObject.SetActive(dialogue.edible);
 
         sentences.Clear();
 
@@ -89,6 +110,7 @@ public class EncounterManager : MonoBehaviour
     {
         if (debugging) Debug.Log("End of conversation");
 
+        view.textTyper.Cancel();
         view.fader.FadeOut();
     }
 }

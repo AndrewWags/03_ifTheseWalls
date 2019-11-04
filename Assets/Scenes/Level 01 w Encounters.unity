@@ -1266,7 +1266,7 @@ PrefabInstance:
     - target: {fileID: 7381259779941290489, guid: 7a27ab42a9ec8c34291682ddf3d2776c,
         type: 3}
       propertyPath: m_Name
-      value: PR06 -Corpse
+      value: PR06 - Corpse
       objectReference: {fileID: 0}
     - target: {fileID: 7381259779941290488, guid: 7a27ab42a9ec8c34291682ddf3d2776c,
         type: 3}
@@ -1333,6 +1333,11 @@ PrefabInstance:
       propertyPath: loc
       value: 
       objectReference: {fileID: 3489265123589182967}
+    - target: {fileID: 7381259779941290491, guid: 7a27ab42a9ec8c34291682ddf3d2776c,
+        type: 3}
+      propertyPath: encounterTrigger
+      value: 
+      objectReference: {fileID: 1354983744173033931}
     - target: {fileID: 7381259780002169019, guid: 7a27ab42a9ec8c34291682ddf3d2776c,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1418,6 +1423,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c948cb3e9f963da43979b000de1a4dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1354983744173033931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354983744173033928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace0858974e0a9347953253ec3bfd876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    portrait: {fileID: 0}
+    sentences:
+    - This guy's super dead.
+    - Wait - looks like there's a note sticking out of his pocket.
+    - '"____ to your heart''s content. It''s hopeless."'
+    - There you go, I guess.
+    talkable: 0
+    edible: 0
 --- !u!108 &1409054833180540220
 Light:
   m_ObjectHideFlags: 0
@@ -1664,7 +1691,7 @@ GameObject:
   - component: {fileID: 1839684825193129881}
   - component: {fileID: 1839684825193129883}
   - component: {fileID: 1839684825193129882}
-  - component: {fileID: 1839684825193129885}
+  - component: {fileID: 1839684825193129884}
   m_Layer: 0
   m_Name: PR05 - Stair Door
   m_TagString: Untagged
@@ -1706,6 +1733,7 @@ MonoBehaviour:
   ignoreCameraRotation: 0
   col: {fileID: 0}
   loc: {fileID: 3489265123589182967}
+  encounterTrigger: {fileID: 1839684825193129884}
 --- !u!65 &1839684825193129883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1719,7 +1747,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.04, y: 9.3, z: 1.88}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1839684825193129885
+--- !u!114 &1839684825193129884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1728,10 +1756,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839684825193129880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 135265eb89b3e8b449b25365816951e1, type: 3}
+  m_Script: {fileID: 11500000, guid: ace0858974e0a9347953253ec3bfd876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pic: {fileID: 21300000, guid: 6389c0b3d2d2e2843ae5d53be430bb59, type: 3}
+  dialogue:
+    name: 
+    portrait: {fileID: 0}
+    sentences:
+    - It's locked. Is there a key somewhere? Wishful thinking...
+    talkable: 0
+    edible: 0
 --- !u!1 &1839684825322043097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,6 +3522,16 @@ PrefabInstance:
       propertyPath: loc
       value: 
       objectReference: {fileID: 3489265123589182967}
+    - target: {fileID: 2164418349779694192, guid: 4bd4c61a1eb67ce4d82319256767ad1b,
+        type: 3}
+      propertyPath: dialogue.talkable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164418349779694192, guid: 4bd4c61a1eb67ce4d82319256767ad1b,
+        type: 3}
+      propertyPath: dialogue.edible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd4c61a1eb67ce4d82319256767ad1b, type: 3}
 --- !u!23 &7876521013887731242
@@ -3879,6 +3923,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8409077339657196841, guid: ce1fd1ba8b01e0b4db6163248d3dfe81,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.8509804
+      objectReference: {fileID: 0}
     - target: {fileID: 5386579141419777450, guid: ce1fd1ba8b01e0b4db6163248d3dfe81,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3888,6 +3937,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409077340040809311, guid: ce1fd1ba8b01e0b4db6163248d3dfe81,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677139231987280150, guid: ce1fd1ba8b01e0b4db6163248d3dfe81,
+        type: 3}
+      propertyPath: typeDelay
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1fd1ba8b01e0b4db6163248d3dfe81, type: 3}
@@ -4021,6 +4080,7 @@ MonoBehaviour:
   ignoreCameraRotation: 0
   col: {fileID: 0}
   loc: {fileID: 3489265123589182967}
+  encounterTrigger: {fileID: 0}
 --- !u!33 &8808015391704537158
 MeshFilter:
   m_ObjectHideFlags: 0
