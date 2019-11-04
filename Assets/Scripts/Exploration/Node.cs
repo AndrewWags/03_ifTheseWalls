@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public abstract class Node : MonoBehaviour
 {
+    public static Node current;
+
     public Transform cameraPosition;
     public List<Node> rechableNodes = new List<Node>();
 
@@ -26,14 +28,10 @@ public abstract class Node : MonoBehaviour
 
     public virtual void Arrive()
     {
-        //leave existing currentNode
-        if(GameManager.ins.currentNode != null)
-        {
-            GameManager.ins.currentNode.Leave();
-        }
-        
-        //set current node
-        GameManager.ins.currentNode = this;
+        //Don't allow initiating travel to this node if we're already here
+        if (current == this) return;
+
+        current = this;
 
         //move camera
         if(ignoreCameraRotation == true)

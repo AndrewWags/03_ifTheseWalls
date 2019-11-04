@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Location : Node
 {
+    public static Location current;
+
     //Change cursor on mouse over colider
     private void OnMouseEnter()
     {
@@ -16,4 +18,10 @@ public class Location : Node
         CursorController.Instance.SetNormalCursor();
     }
 
+    public override void Arrive()
+    {
+        base.Arrive();
+
+        current = this;
+    }
 }

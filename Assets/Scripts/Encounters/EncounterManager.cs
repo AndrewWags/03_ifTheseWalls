@@ -11,6 +11,8 @@ public class EncounterManager : MonoBehaviour
 
     private bool debugging = false;
 
+    public static bool inEncounter = false;
+
     private void Awake()
     {
         instance = this;
@@ -27,22 +29,6 @@ public class EncounterManager : MonoBehaviour
         view.eatButton.onClick.AddListener(HandleEatButton);
     }
 
-   /* void Update()
-    {
-        //If I right click, and im in a prop, then backup to the props location
-        if (Input.GetMouseButtonDown(1) && GameManager.ins.currentNode.GetComponent<Prop>() != null)
-        {
-            if (view.gameObject.activeInHierarchy)
-            {
-                view.Close();
-                return;
-            }
-            GameManager.ins.currentNode.GetComponent<Prop>().loc.Arrive();
-           
-        }
-    }
-    */
-
     void HandleTalkButton()
     {
         DisplayNextSentence();
@@ -50,13 +36,15 @@ public class EncounterManager : MonoBehaviour
 
     void HandleEatButton()
     {
-        EndDialogue();
         AudioManager.PlayAudio(SfxLibrary.instance.sfx.eat);
+        EndEncounter();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartEncounter(Dialogue dialogue)
     {
         if (debugging) Debug.Log("Starting dialogue with: " + dialogue.name);
+
+        inEncounter = true;
 
         view.portrait.sprite = dialogue.portrait;
         view.nameTextField.text = dialogue.name;
@@ -77,7 +65,7 @@ public class EncounterManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
-            EndDialogue();
+            EndEncounter();
             return;
         }
 
@@ -88,6 +76,13 @@ public class EncounterManager : MonoBehaviour
         view.continueButton.gameObject.SetActive(sentences.Count > 0);
 
         if (debugging) Debug.Log(sentence);
+    }
+
+    public void EndEncounter()
+    {
+        EndDialogue();
+
+        inEncounter = false;
     }
 
     void EndDialogue()

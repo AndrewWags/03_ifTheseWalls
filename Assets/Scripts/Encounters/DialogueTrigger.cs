@@ -8,6 +8,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        EncounterManager.instance.StartDialogue(dialogue);
+        EncounterManager.instance.StartEncounter(dialogue);
     }
 }

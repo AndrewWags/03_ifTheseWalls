@@ -8,6 +8,6 @@ public class ImageViewer : Interactable
 
     public override void Interact()
     {
-        GameManager.ins.ivCanvas.Activate(pic);
+        //GameManager.ins.ivCanvas.Activate(pic);
     }
 }
