@@ -11,18 +11,18 @@ public class AudioManager : Singleton<AudioManager>
 
     public AudioSource musicAudioSource;
 
-    public AudioData audioData;
-    public MusicData musicData;
+    public SfxLibrary sfxLibrary;
+    public AmbientAudioLibrary ambientLibrary;
 
     CoroutineManager.Item musicSequence = new CoroutineManager.Item();
 
     // Use this for initialization
     void Awake()
     {
-        AudioData.instance = audioData;
-        MusicData.instance = musicData;
+        SfxLibrary.instance = sfxLibrary;
+        AmbientAudioLibrary.instance = ambientLibrary;
 
-        PlayMusic(musicData.level.dungeon);
+        PlayMusic(ambientLibrary.level.dungeon);
     }
 
     public static void PlayAudio(AudioClip audioClip, float pitch = 1f)

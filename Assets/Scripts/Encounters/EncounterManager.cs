@@ -51,7 +51,7 @@ public class EncounterManager : MonoBehaviour
     void HandleEatButton()
     {
         EndDialogue();
-        AudioManager.PlayAudio(AudioData.instance.sfx.eat);
+        AudioManager.PlayAudio(SfxLibrary.instance.sfx.eat);
     }
 
     public void StartDialogue(Dialogue dialogue)

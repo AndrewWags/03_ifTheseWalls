@@ -251,8 +251,8 @@ MonoBehaviour:
   audioSourcePrefab: {fileID: 6859694537158819009, guid: 2e4414a1e7b729849b5e41b1ad201da3,
     type: 3}
   musicAudioSource: {fileID: 194929254}
-  audioData: {fileID: 11400000, guid: 13705a567a4da0044a25ec941240af11, type: 2}
-  musicData: {fileID: 11400000, guid: b267871f4b8c8b840ad4d8aa0ecc6aca, type: 2}
+  sfxLibrary: {fileID: 11400000, guid: 13705a567a4da0044a25ec941240af11, type: 2}
+  ambientLibrary: {fileID: 11400000, guid: b267871f4b8c8b840ad4d8aa0ecc6aca, type: 2}
 --- !u!4 &194929256
 Transform:
   m_ObjectHideFlags: 0

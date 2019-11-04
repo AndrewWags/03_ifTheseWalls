@@ -5,18 +5,18 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
-public class AudioData : ScriptableObject {
+public class SfxLibrary : ScriptableObject {
 
-    public static AudioData instance;
+    public static SfxLibrary instance;
 
     public UI ui;
     public SFX sfx;
 
 #if UNITY_EDITOR
-    [MenuItem("Assets/Create/AudioData")]
+    [MenuItem("Assets/Create/SfxLibrary")]
     public static void CreateItem()
     {
-        ScriptableObjectUtility.CreateAsset<AudioData>();
+        ScriptableObjectUtility.CreateAsset<SfxLibrary>();
     }
 #endif
 }

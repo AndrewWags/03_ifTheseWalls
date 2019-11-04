@@ -4,9 +4,9 @@ using System.Collections;
 using UnityEditor;
 #endif
 
-public class MusicData : ScriptableObject
+public class AmbientAudioLibrary : ScriptableObject
 {
-    public static MusicData instance;
+    public static AmbientAudioLibrary instance;
 
     public Level level;
 
@@ -14,7 +14,7 @@ public class MusicData : ScriptableObject
     [MenuItem("Assets/Create/MusicData")]
     public static void CreateItem()
     {
-        ScriptableObjectUtility.CreateAsset<MusicData>();
+        ScriptableObjectUtility.CreateAsset<AmbientAudioLibrary>();
     }
 #endif
 }

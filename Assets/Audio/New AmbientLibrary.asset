@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfba84a3b77eea54ea0342a5111722aa, type: 3}
-  m_Name: New MusicData
+  m_Name: New AmbientLibrary
   m_EditorClassIdentifier: 
   level:
     dungeon: {fileID: 8300000, guid: 39f7d96e685b9c547913eb0aec90bc27, type: 3}

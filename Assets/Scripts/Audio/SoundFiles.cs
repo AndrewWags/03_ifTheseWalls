@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEditor;
 
-public class AudioDataAsset
+public class SfxLibraryAsset
 {
-    [MenuItem("Assets/Create/AudioData")]
+    [MenuItem("Assets/Create/SfxLibrary")]
     public static void CreateAsset()
     {
-        ScriptableObjectUtility.CreateAsset<AudioData>();
+        ScriptableObjectUtility.CreateAsset<SfxLibrary>();
     }
 }
 #endif
