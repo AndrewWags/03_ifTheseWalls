@@ -8,7 +8,7 @@ public class Typer : MonoBehaviour {
 
 	public string message = "Replace";
 	public Text text;
-	public float startDelay = 2f;
+	public float startDelay = 0f;
 	public float typeDelay = 0.0f;
 	public AudioClip typeSound;
 
